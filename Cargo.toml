@@ -1,0 +1,24 @@
+[package]
+name = "uts2ts"
+version = "0.1.0"
+edition = "2021"
+description = "Convert a unix timestamp (seconds) to a struct {year, month, day, hour, minute, second, weekday}."
+authors = ["Helmut K. C. Tessarek <tessarek@evermeet.cx>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/tessus/uts2ts"
+repository = "https://github.com/tessus/uts2ts"
+keywords = ["unix", "timestamp", "epoch"]
+categories = ["date-and-time", "encoding"]
+include = ["src/**/*", "examples/**/*", "Cargo.toml", "LICENSE", "README.md", "CHANGELOG.md"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[profile.release]
+debug = false
+panic = "unwind"
+lto = true
+codegen-units = 1
+strip = true
