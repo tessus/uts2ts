@@ -6,9 +6,9 @@
 
 So why then? Well, it's not always warranted to pull in a myriad of dependecies when you need this one, little thingy.
 
-For complex time and date calculations and manipulations, please refer to the more funtional complete crates [chrono] and [time].
+For complex time and date calculations and manipulations, please refer to the more functional complete crates [chrono] and [time].
 
-Please note that the `as_string()` method is just a quick way of enerating a human readable date/time string that
+Please note that the `as_string()` method is just a quick way of generating a human readable date/time string that
 
 - is unambiguous and close to ISO 8601 (or rfc3339)
 - can be used as an example how to write your own formatting function

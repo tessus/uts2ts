@@ -7,7 +7,7 @@
 //! So why then? Well, it's not always warranted to pull in a myriad of dependecies when you
 //! need this one, little thingy.
 //!
-//! For complex time and date calculations and manipulations, please refer to the more funtional
+//! For complex time and date calculations and manipulations, please refer to the more functional
 //! complete crates [chrono] and [time].
 //!
 //! Please note that the `as_string()` method is just a quick way of generating a human readable
