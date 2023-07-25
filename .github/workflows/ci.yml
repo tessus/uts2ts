@@ -11,23 +11,23 @@ on:
     - cron: "0 0 * * 0"
 
 jobs:
-  check:
-    name: Check
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Install Rust toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          profile: minimal
-          override: true
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-      - name: Check the project files
-        uses: actions-rs/cargo@v1
-        with:
-          command: check
-          args: --locked --verbose
+#  check:
+#    name: Check
+#    runs-on: ubuntu-22.04
+#    steps:
+#      - name: Install Rust toolchain
+#        uses: actions-rs/toolchain@v1
+#        with:
+#          toolchain: stable
+#          profile: minimal
+#          override: true
+#      - name: Checkout the repository
+#        uses: actions/checkout@v3
+#      - name: Check the project files
+#        uses: actions-rs/cargo@v1
+#        with:
+#          command: check
+#          args: --locked --verbose
 
   build_and_test:
     name: Build and test suite
