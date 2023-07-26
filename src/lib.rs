@@ -19,18 +19,16 @@
 //!
 //! # Examples
 //!
-//! ```ignore
-//! use uts2ts;
+//! ```
+//! use uts2ts::uts2ts;
 //!
-//! fn main() {
-//!     let ts = uts2ts::uts2ts(204158100);
+//! let ts = uts2ts(204158100);
 //!
-//!     // Timestamp { year: 1976, month: 6, day: 20, hour: 22, minute: 35, second: 0, weekday: 0 }
-//!     println!("{:?}", ts);
+//! // Timestamp { year: 1976, month: 6, day: 20, hour: 22, minute: 35, second: 0, weekday: 0 }
+//! println!("{:?}", ts);
 //!
-//!     // 1976-06-20 22:35:00
-//!     println!("{}", ts.as_string());
-//! }
+//! // 1976-06-20 22:35:00
+//! println!("{}", ts.as_string());
 //! ```
 //! [chrono]: https://crates.io/crates/chrono
 //! [time]: https://crates.io/crates/time
@@ -61,8 +59,10 @@ impl Timestamp {
     ///
     /// # Examples
     ///
-    /// ```ignore
-    /// let ts = uts2ts::uts2ts(204158100);
+    /// ```
+    /// use uts2ts::uts2ts;
+    ///
+    /// let ts = uts2ts(204158100);
     /// assert_eq!("1976-06-20 22:35:00", ts.as_string());
     ///
     /// assert_eq!("2022-12-31 23:59:59", uts2ts(1672531199).as_string());
@@ -116,14 +116,12 @@ impl Timestamp {
 ///
 /// # Examples
 ///
-/// ```ignore
-/// use uts2ts;
+/// ```
+/// use uts2ts::uts2ts;
 ///
-/// fn main() {
-///     let ts = uts2ts::uts2ts(204158100);
-///     // Timestamp { year: 1976, month: 6, day: 20, hour: 22, minute: 35, second: 0, weekday: 0 }
-///     println!("{:?}", ts);
-/// }
+/// let ts = uts2ts(204158100);
+/// // Timestamp { year: 1976, month: 6, day: 20, hour: 22, minute: 35, second: 0, weekday: 0 }
+/// println!("{:?}", ts);
 /// ```
 pub fn uts2ts(seconds: i64) -> Timestamp {
     // Algorithm from MUSL (__secs_to_tm.c)
