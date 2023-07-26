@@ -30,6 +30,7 @@ jobs:
 
   clippy:
     name: Lints
+    needs: rustfmt
     runs-on: ubuntu-22.04
     steps:
       - name: Install Rust toolchain
@@ -49,6 +50,7 @@ jobs:
 
   build_and_test:
     name: Build and test suite
+    needs: [rustfmt, clippy]
     runs-on: ubuntu-latest
     strategy:
       matrix:
