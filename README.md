@@ -1,5 +1,11 @@
 # uts2ts
 
+[![Continuous Integration](https://img.shields.io/github/actions/workflow/status/tessus/uts2ts/ci.yml?branch=master&style=flat&logo=GitHub%20Actions&logoColor=white)](https://github.com/tessus/uts2ts/actions?query=workflow%3A%22Continuous+Integration%22)
+[![Continuous Deployment](https://img.shields.io/github/actions/workflow/status/tessus/uts2ts/cd.yml?style=flat&logo=GitHub%20Actions&logoColor=white&label=deploy)](https://github.com/tessus/uts2ts/actions?query=workflow%3A%22Continuous+Deployment%22)
+[![GitHub Tag](https://img.shields.io/github/v/tag/tessus/uts2ts?style=flat&logo=GitHub&logoColor=white)](https://github.com/tessus/uts2ts/tags)
+[![Crate Release](https://img.shields.io/crates/v/uts2ts?style=flat&logo=Rust&logoColor=white)](https://crates.io/crates/uts2ts/)
+[![Documentation](https://img.shields.io/docsrs/uts2ts?style=flat&logo=Rust&logoColor=white)](https://docs.rs/uts2ts/)
+
 `uts2ts` is a simple function that does only one thing:
 
 > It converts a unix timestamp to something slightly more useful. ;-)
@@ -17,10 +23,10 @@ Please note that the `as_string()` method is just a quick way of generating a hu
 ## Examples
 
 ```rust
-use uts2ts;
+use uts2ts::uts2ts;
 
 fn main() {
-    let ts = uts2ts::uts2ts(204158100);
+    let ts = uts2ts(204158100);
 
     // Timestamp { year: 1976, month: 6, day: 20, hour: 22, minute: 35, second: 0, weekday: 0 }
     println!("{:?}", ts);
