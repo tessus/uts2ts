@@ -16,7 +16,7 @@ For complex time and date calculations and manipulations, please refer to the mo
 
 Please note that the `as_string()` method is just a quick way of generating a human readable date/time string that
 
-- is unambiguous and close to ISO 8601 (or rfc3339)
+- is unambiguous and close to ISO 8601 (or RFC 3339)
 - can be used as an example how to write your own formatting function
 - is NOT an attempt to reinvent all the goodies other crates provide
 
