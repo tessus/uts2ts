@@ -1,20 +1,20 @@
-#name: Continuous Deployment
-#
-#on:
-#  push:
-#    tags:
-#      - "v*.*.*"
-#
-#jobs:
-#  publish-crates-io:
-#    name: Publish on crates.io
-#    needs: publish-github
-#    runs-on: ubuntu-22.04
-#    steps:
-#      - name: Checkout the repository
-#        uses: actions/checkout@v3
-#      - name: Publish
-#        uses: actions-rs/cargo@v1
-#        with:
-#          command: publish
-#          args: --token ${{ secrets.CARGO_TOKEN }}
+name: Continuous Deployment
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  publish-crates-io:
+    name: Publish on crates.io
+    needs: publish-github
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+      - name: Publish
+        uses: actions-rs/cargo@v1
+        with:
+          command: publish
+          args: --token ${{ secrets.CARGO_TOKEN }}
