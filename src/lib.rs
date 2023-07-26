@@ -4,7 +4,7 @@
 //!
 //! > It converts a unix timestamp to something slightly more useful. ;-)
 //!
-//! So why then? Well, it's not always warranted to pull in a myriad of dependecies when you
+//! So why then? Well, it's not always warranted to pull in a myriad of dependencies when you
 //! need this one, little thingy.
 //!
 //! For complex time and date calculations and manipulations, please refer to the more functional

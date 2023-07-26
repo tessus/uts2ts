@@ -2,9 +2,9 @@
 
 `uts2ts` is a simple function that does only one thing:
 
-> It cnverts a unix timestamp to something slightly more useful. ;-)
+> It converts a unix timestamp to something slightly more useful. ;-)
 
-So why then? Well, it's not always warranted to pull in a myriad of dependecies when you need this one, little thingy.
+So why then? Well, it's not always warranted to pull in a myriad of dependencies when you need this one, little thingy.
 
 For complex time and date calculations and manipulations, please refer to the more functional complete crates [chrono] and [time].
 
