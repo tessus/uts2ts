@@ -13,7 +13,7 @@
 //! Please note that the `as_string()` method is just a quick way of generating a human readable
 //! date/time string that
 //!
-//! - is unambiguous and close to ISO 8601 (or rfc3339)
+//! - is unambiguous and close to ISO 8601 (or RFC 3339)
 //! - can be used as an example how to write your own formatting function
 //! - is NOT an attempt to reinvent all the goodies other crates provide
 //!
@@ -36,7 +36,9 @@
 #[derive(Debug, Clone)]
 /// The Timestamp struct that holds the date and time data.
 pub struct Timestamp {
-    /// format: `YYYY`
+    /// values: [`i32::MIN`](https://doc.rust-lang.org/std/primitive.i32.html#associatedconstant.MIN) -
+    /// [`i32::MAX`](https://doc.rust-lang.org/std/primitive.i32.html#associatedconstant.MAX)
+    /// (in 2 billion years sombody can change this to an `i64`)
     pub year: i32,
     /// values: `1-12`
     pub month: i32,
@@ -53,7 +55,8 @@ pub struct Timestamp {
 }
 
 impl Timestamp {
-    /// Returns a String in the format `YYYY-MM-DD hh:mm:ss`<br>
+    /// Returns a String in the format `YYYY-MM-DD hh:mm:ss`
+    ///
     /// The weekday is omitted on purpose, otherwise the day strings would require localization.
     /// I chose this format, because it is unambiguous.
     ///
