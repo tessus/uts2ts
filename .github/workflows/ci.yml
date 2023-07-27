@@ -13,39 +13,27 @@ jobs:
     name: Formatting
     runs-on: ubuntu-22.04
     steps:
-      - name: Install Rust toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          profile: minimal
-          components: rustfmt
-          override: true
       - name: Checkout the repository
         uses: actions/checkout@v3
-      - name: Check the formatting
-        uses: actions-rs/cargo@v1
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
         with:
-          command: fmt
-          args: -- --check --verbose
+          components: rustfmt
+      - name: Check the formatting
+        run: cargo fmt --all -- --check --verbose
 
   clippy:
     name: Lints
     runs-on: ubuntu-22.04
     steps:
-      - name: Install Rust toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          profile: minimal
-          components: clippy
-          override: true
       - name: Checkout the repository
         uses: actions/checkout@v3
-      - name: Check the lints
-        uses: actions-rs/cargo@v1
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
         with:
-          command: clippy
-          args: --lib --tests --bins --examples --verbose -- -D warnings
+          components: clippy
+      - name: Check the lints
+        run: cargo clippy --lib --tests --bins --examples --verbose -- -D warnings
 
   build_and_test:
     name: Build and test suite
