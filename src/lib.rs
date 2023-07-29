@@ -71,9 +71,13 @@ impl Timestamp {
     /// assert_eq!("2525-06-20 22:35:00", uts2ts(17528913300).as_string());
     /// ```
     pub fn as_string(&self) -> String {
+        let mut sign = "";
+        if self.year.is_negative() {
+            sign = "-";
+        }
         format!(
-            "{year}-{month:0>2}-{day:0>2} {hour:0>2}:{minute:0>2}:{second:0>2}",
-            year = self.year,
+            "{sign}{year:0>4}-{month:0>2}-{day:0>2} {hour:0>2}:{minute:0>2}:{second:0>2}",
+            year = self.year.abs(),
             month = self.month,
             day = self.day,
             hour = self.hour,
@@ -225,6 +229,10 @@ mod tests {
         assert_eq!("2023-01-01 00:00:00", uts2ts(1672531200).as_string());
         assert_eq!("2024-02-29 12:34:56", uts2ts(1709210096).as_string());
         assert_eq!("2525-06-20 22:35:00", uts2ts(17528913300).as_string());
+        assert_eq!("-0001-12-31 23:59:59", uts2ts(-62167219201).as_string());
+        assert_eq!("0000-01-01 00:00:00", uts2ts(-62167219200).as_string());
+        assert_eq!("1948-03-19 15:15:15", uts2ts(-687516285).as_string());
+        assert_eq!("1949-04-27 18:18:18", uts2ts(-652599702).as_string());
     }
 
     #[test]
