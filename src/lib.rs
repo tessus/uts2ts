@@ -41,17 +41,17 @@ pub struct Timestamp {
     /// (in 2 billion years sombody can change this to an `i64`)
     pub year: i32,
     /// values: `1-12`
-    pub month: i32,
+    pub month: u8,
     /// values: `1-31`
-    pub day: i32,
+    pub day: u8,
     /// values: `0-23`
-    pub hour: i32,
+    pub hour: u8,
     /// values: `0-59`
-    pub minute: i32,
+    pub minute: u8,
     /// values: `0-59`
-    pub second: i32,
+    pub second: u8,
     /// values: `0-6` (`0` = Sunday, `1` = Monday, ...)
-    pub weekday: i32,
+    pub weekday: u8,
 }
 
 impl Timestamp {
@@ -93,27 +93,27 @@ impl Timestamp {
         self.year
     }
 
-    pub fn month(&self) -> i32 {
+    pub fn month(&self) -> u8 {
         self.month
     }
 
-    pub fn day(&self) -> i32 {
+    pub fn day(&self) -> u8 {
         self.day
     }
 
-    pub fn hour(&self) -> i32 {
+    pub fn hour(&self) -> u8 {
         self.hour
     }
 
-    pub fn minute(&self) -> i32 {
+    pub fn minute(&self) -> u8 {
         self.minute
     }
 
-    pub fn second(&self) -> i32 {
+    pub fn second(&self) -> u8 {
         self.second
     }
 
-    pub fn weekday(&self) -> i32 {
+    pub fn weekday(&self) -> u8 {
         self.weekday
     }
 }
@@ -200,12 +200,12 @@ pub fn uts2ts(seconds: i64) -> Timestamp {
 
     Timestamp {
         year: ret_year as i32,
-        month: ret_month as i32,
-        day: ret_day as i32,
-        hour: ret_hour as i32,
-        minute: ret_minute as i32,
-        second: ret_second as i32,
-        weekday: ret_weekday as i32,
+        month: ret_month as u8,
+        day: ret_day as u8,
+        hour: ret_hour as u8,
+        minute: ret_minute as u8,
+        second: ret_second as u8,
+        weekday: ret_weekday as u8,
     }
 }
 
