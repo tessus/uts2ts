@@ -29,6 +29,9 @@
 //!
 //! // 1976-06-20 22:35:00
 //! println!("{}", ts.as_string());
+//!
+//! // 1976-06-20 22:35:00 +0000
+//! println!("{}", ts.as_string_utc());
 //! ```
 //! [chrono]: https://crates.io/crates/chrono
 //! [time]: https://crates.io/crates/time
@@ -80,6 +83,42 @@ impl Timestamp {
         }
         format!(
             "{sign}{year:0>4}-{month:0>2}-{day:0>2} {hour:0>2}:{minute:0>2}:{second:0>2}",
+            year = self.year.abs(),
+            month = self.month,
+            day = self.day,
+            hour = self.hour,
+            minute = self.minute,
+            second = self.second
+        )
+    }
+
+    /// Returns a String in the format `YYYY-MM-DD hh:mm:ss +0000`
+    ///
+    /// This crate has no TZ awareness. However, it can be useful to denote a timestamp as being in UTC.
+    ///
+    /// The weekday is omitted on purpose, otherwise the day strings would require localization.
+    /// I chose this format, because it is unambiguous.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use uts2ts::uts2ts;
+    ///
+    /// let ts = uts2ts(204158100);
+    /// assert_eq!("1976-06-20 22:35:00 +0000", ts.as_string_utc());
+    ///
+    /// assert_eq!("2022-12-31 23:59:59 +0000", uts2ts(1672531199).as_string_utc());
+    /// assert_eq!("2023-01-01 00:00:00 +0000", uts2ts(1672531200).as_string_utc());
+    /// assert_eq!("2024-02-29 12:34:56 +0000", uts2ts(1709210096).as_string_utc());
+    /// assert_eq!("2525-06-20 22:35:00 +0000", uts2ts(17528913300).as_string_utc());
+    /// ```
+    pub fn as_string_utc(&self) -> String {
+        let mut sign = "";
+        if self.year.is_negative() {
+            sign = "-";
+        }
+        format!(
+            "{sign}{year:0>4}-{month:0>2}-{day:0>2} {hour:0>2}:{minute:0>2}:{second:0>2} +0000",
             year = self.year.abs(),
             month = self.month,
             day = self.day,
@@ -236,6 +275,46 @@ mod tests {
         assert_eq!("0000-01-01 00:00:00", uts2ts(-62167219200).as_string());
         assert_eq!("1948-03-19 15:15:15", uts2ts(-687516285).as_string());
         assert_eq!("1949-04-27 18:18:18", uts2ts(-652599702).as_string());
+    }
+
+    #[test]
+    fn test_uts2ts_as_string_utc() {
+        assert_eq!(
+            "1976-06-20 22:35:00 +0000",
+            uts2ts(204158100).as_string_utc()
+        );
+        assert_eq!(
+            "2022-12-31 23:59:59 +0000",
+            uts2ts(1672531199).as_string_utc()
+        );
+        assert_eq!(
+            "2023-01-01 00:00:00 +0000",
+            uts2ts(1672531200).as_string_utc()
+        );
+        assert_eq!(
+            "2024-02-29 12:34:56 +0000",
+            uts2ts(1709210096).as_string_utc()
+        );
+        assert_eq!(
+            "2525-06-20 22:35:00 +0000",
+            uts2ts(17528913300).as_string_utc()
+        );
+        assert_eq!(
+            "-0001-12-31 23:59:59 +0000",
+            uts2ts(-62167219201).as_string_utc()
+        );
+        assert_eq!(
+            "0000-01-01 00:00:00 +0000",
+            uts2ts(-62167219200).as_string_utc()
+        );
+        assert_eq!(
+            "1948-03-19 15:15:15 +0000",
+            uts2ts(-687516285).as_string_utc()
+        );
+        assert_eq!(
+            "1949-04-27 18:18:18 +0000",
+            uts2ts(-652599702).as_string_utc()
+        );
     }
 
     #[test]

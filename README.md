@@ -33,6 +33,9 @@ fn main() {
 
     // 1976-06-20 22:35:00
     println!("{}", ts.as_string());
+
+    // 1976-06-20 22:35:00 +0000
+    println!("{}", ts.as_string_utc());
 }
 ```
 
