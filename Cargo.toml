@@ -1,6 +1,6 @@
 [package]
 name = "uts2ts"
-version = "0.4.0"
+version = "0.4.1"
 edition = "2021"
 description = "Convert a unix timestamp (seconds) to a struct {year, month, day, hour, minute, second, weekday}."
 authors = ["Helmut K. C. Tessarek <tessarek@evermeet.cx>"]
