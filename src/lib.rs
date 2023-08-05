@@ -113,19 +113,7 @@ impl Timestamp {
     /// assert_eq!("2525-06-20 22:35:00 +0000", uts2ts(17528913300).as_string_utc());
     /// ```
     pub fn as_string_utc(&self) -> String {
-        let mut sign = "";
-        if self.year.is_negative() {
-            sign = "-";
-        }
-        format!(
-            "{sign}{year:0>4}-{month:0>2}-{day:0>2} {hour:0>2}:{minute:0>2}:{second:0>2} +0000",
-            year = self.year.abs(),
-            month = self.month,
-            day = self.day,
-            hour = self.hour,
-            minute = self.minute,
-            second = self.second
-        )
+        format!("{v} +0000", v = self.as_string())
     }
 
     pub fn year(&self) -> i32 {
