@@ -8,7 +8,7 @@ on:
 jobs:
   publish-crates-io:
     name: Publish on crates.io
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
