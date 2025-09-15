@@ -1,8 +1,6 @@
 # uts2ts
 
-[![Continuous Integration](https://img.shields.io/github/actions/workflow/status/tessus/uts2ts/ci.yml?branch=master&style=flat&logo=GitHub%20Actions&logoColor=white)](https://github.com/tessus/uts2ts/actions?query=workflow%3A%22Continuous+Integration%22)
-[![Continuous Deployment](https://img.shields.io/github/actions/workflow/status/tessus/uts2ts/cd.yml?style=flat&logo=GitHub%20Actions&logoColor=white&label=deploy)](https://github.com/tessus/uts2ts/actions?query=workflow%3A%22Continuous+Deployment%22)
-[![GitHub Tag](https://img.shields.io/github/v/tag/tessus/uts2ts?style=flat&logo=GitHub&logoColor=white)](https://github.com/tessus/uts2ts/tags)
+[![GitHub Tag](https://img.shields.io/github/v/tag/tessus/uts2ts?style=flat&logo=GitHub&logoColor=white&color=blue)](https://github.com/tessus/uts2ts/tags)
 [![Crate Release](https://img.shields.io/crates/v/uts2ts?style=flat&logo=Rust&logoColor=white)](https://crates.io/crates/uts2ts/)
 [![Documentation](https://img.shields.io/docsrs/uts2ts?style=flat&logo=Rust&logoColor=white)](https://docs.rs/uts2ts/)
 
