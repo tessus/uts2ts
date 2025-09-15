@@ -39,5 +39,13 @@ fn main() {
 }
 ```
 
+## Maintenance Status
+
+This library does not have any dependencies and is feature complete.
+
+Therefore there aren't any regular updates and as a result it might seem that this project has been abandoned. However, this is not the case.
+
+This project is maintained.
+
 [chrono]: https://crates.io/crates/chrono
 [time]: https://crates.io/crates/time
